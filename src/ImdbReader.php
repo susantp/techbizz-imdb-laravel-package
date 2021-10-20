@@ -16,16 +16,25 @@ class ImdbReader
         $this->endpoint = config('imdbReader.endpoint');
     }
 
+    private function makeResponseMacro($data, $errors, $responseCode)
+    {
+        return response()->json([
+            ['errors' => $errors],
+            ['responseCode' => $responseCode],
+            ['data' => $data]
+        ]);
+    }
+
     public function searchMovie($expression)
     {
         $lang = "en";
         $params = "/en/API/SearchMovie/" . $this->apiKey . "/" . $expression;
-
         try {
 //            return Http::acceptJson()->get($this->endpoint . $params);
-            return json_decode(file_get_contents($this->endpoint . $params), true);
+            $response = json_decode(file_get_contents($this->endpoint . $params), true);
+            return $this->makeResponseMacro($response, false, 200);
         } catch (\Exception $exception) {
-            return abort(400, $exception->getMessage());
+            return $this->makeResponseMacro($exception->getMessage(), true, 400);
         }
         https://imdb-api.com/en/API/SearchMovie/k_1l3a2ym5/inception 2010
     }
