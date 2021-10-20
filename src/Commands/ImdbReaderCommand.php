@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Techbizz\ImdbReader\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class ImdbReaderCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'imdb-reader';
 
     public $description = 'My command';
 
