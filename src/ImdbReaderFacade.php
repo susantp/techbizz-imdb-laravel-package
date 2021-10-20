@@ -2,7 +2,6 @@
 
 namespace Techbizz\ImdbReader;
 
-
 use Illuminate\Support\Facades\Facade;
 
 /**

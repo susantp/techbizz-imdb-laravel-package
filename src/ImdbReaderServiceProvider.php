@@ -8,8 +8,6 @@ use Techbizz\ImdbReader\Commands\ImdbReaderCommand;
 
 class ImdbReaderServiceProvider extends PackageServiceProvider
 {
-
-
     public function configurePackage(Package $package): void
     {
         /*
