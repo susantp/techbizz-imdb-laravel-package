@@ -8,6 +8,8 @@ use Techbizz\ImdbReader\Commands\ImdbReaderCommand;
 
 class ImdbReaderServiceProvider extends PackageServiceProvider
 {
+
+
     public function configurePackage(Package $package): void
     {
         /*
@@ -16,8 +18,8 @@ class ImdbReaderServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('imdb-reader')
-            ->hasConfigFile()
+            ->name('imdbReader')
+            ->hasConfigFile(["imdbReader"])
             ->hasViews()
             ->hasMigration('create_imdb-reader_table')
             ->hasCommand(ImdbReaderCommand::class);

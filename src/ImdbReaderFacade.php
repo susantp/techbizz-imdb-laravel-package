@@ -2,6 +2,7 @@
 
 namespace Techbizz\ImdbReader;
 
+
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -11,6 +12,6 @@ class ImdbReaderFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'imdb-reader';
+        return 'imdbReader';
     }
 }
