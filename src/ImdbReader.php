@@ -21,7 +21,7 @@ class ImdbReader
         return response()->json([
             ['errors' => $errors],
             ['responseCode' => $responseCode],
-            ['data' => $data]
+            ['data' => $data],
         ]);
     }
 
@@ -29,9 +29,11 @@ class ImdbReader
     {
         $lang = "en";
         $params = "/en/API/SearchMovie/" . $this->apiKey . "/" . $expression;
+
         try {
 //            return Http::acceptJson()->get($this->endpoint . $params);
             $response = json_decode(file_get_contents($this->endpoint . $params), true);
+
             return $this->makeResponseMacro($response, false, 200);
         } catch (\Exception $exception) {
             return $this->makeResponseMacro($exception->getMessage(), true, 400);
