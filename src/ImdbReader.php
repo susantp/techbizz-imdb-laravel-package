@@ -16,11 +16,11 @@ class ImdbReader
         $this->endpoint = config('imdbReader.endpoint');
     }
 
-
     public function searchMovie($expression)
     {
         $lang = "en";
         $params = "/en/API/SearchMovie/" . $this->apiKey . "/" . $expression;
+
         try {
 //            return Http::acceptJson()->get($this->endpoint . $params);
             return json_decode(file_get_contents($this->endpoint . $params), true);
@@ -35,5 +35,4 @@ class ImdbReader
         if ($request->has('expression')) {
         }
     }
-
 }
