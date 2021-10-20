@@ -19,7 +19,7 @@ class ImdbReaderServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('imdbReader')
-            ->hasConfigFile(["imdbReader"])
+            ->hasConfigFile("imdbReader")
             ->hasViews()
             ->hasMigration('create_imdb-reader_table')
             ->hasCommand(ImdbReaderCommand::class);
